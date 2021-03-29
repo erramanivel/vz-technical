@@ -26,6 +26,7 @@ Please avoid wasting time for complex project configuration. Use configuration f
   9. It should be posible provide unit test coverage, will be great.
 
 # Expected Deliverables
-  1. Source code.
-  2. Binary versions of your applications that are ready to run. No build should be required.
-  3. Readme.
+  1. Implement the solution in NodeJs
+  2. Link to your personal Github Repo, with the Source code.
+  3. Binary versions of your applications that are ready to run. No build should be required.
+  4. Readme.
