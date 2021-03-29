@@ -26,6 +26,6 @@ Please avoid wasting time for complex project configuration. Use configuration f
   9. It should be posible provide unit test coverage, will be great.
 
 # Expected Deliverables
-Source code.
-Binary versions of your applications that are ready to run. No build should be required.
-Readme.
+  1. Source code.
+  2. Binary versions of your applications that are ready to run. No build should be required.
+  3. Readme.
