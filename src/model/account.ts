@@ -26,5 +26,33 @@ class Account {
         return this.isLock;
     }
 
+    public getTransactions(): Array<Transaction>{
+        return [... this.transactions];
+    }
+
+    private changeAccountLock(){
+        this.isLock = !this.isLock;
+    }
+
+    public addTransaction(type: string, amount: number): Transaction{
+        this.changeAccountLock();
+        const transaction = new Transaction(type, amount);
+        if(type.toUpperCase() === 'CREDIT'){
+            this.balance += amount;
+        }else{
+            this.balance -= amount;
+        }
+        this.transactions.push(transaction);
+        this.changeAccountLock();
+        return transaction;
+    }
+
+    public isTransactionValid(type: string, amount: number): boolean{
+        if(type.toUpperCase() === 'DEBIT' && this.balance - amount < 0){
+            return false;
+        }
+        return true;
+    }
+
 }
 export default Account;

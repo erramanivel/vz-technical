@@ -1,14 +1,15 @@
+import { v4 as uuidv4 } from 'uuid';
 class Transaction {
     private type: string;
     private amount: number;
     private id: string;
     private effectiveDate: string;
 
-    private constructor(type: string, amount: number) {
+    public constructor(type: string, amount: number) {
         this.type = this.validateType(type);
         this.amount = amount;
-        this.id = '0';
-        this.effectiveDate = new Date().toLocaleDateString();
+        this.id = uuidv4();
+        this.effectiveDate = new Date().toISOString();
     }
 
     private validateType(type: string): string{
@@ -17,6 +18,10 @@ class Transaction {
         }else {
             throw new Error("Invalid type of transaction");
         }
-    }   
+    }
+
+    public getId(){
+        return this.id;
+    }
 }
 export default Transaction;

@@ -1,32 +1,72 @@
-# Technical exam for Venzee
+# Venzee Account API
 
-[Website](https://venzee.com/)
+This NodeJS with Typescript API contains the functionality to get balance,create transactions, fetch transactions and look transactions for id for unique account.
 
-# Requirements
-We are looking to build a money accounting system. The application should be a web service. It should not do any real “transactional” work, just emulate the financial transactions logic (debit and credit).
+Note: In this case node_modules is implicit due to as requirement the binary solution should be there without compilation, however here you can find step by step how to compile it and test it. To run the final build you can run:
 
-We emulate debit and credit operations for a single user, so we always have just one financial account.
+### `run npm run start `
 
-No security is required. So don't worry about authentication.
+Runs the app in the compilated mode.\
+Open [http://localhost:8000](http://localhost:8000) to hit it in the browser.
 
-No real persistence is expected. Please don't invest time into DB integration.
+In order to get this application working you should run this project with the following arguments:
 
-Please avoid wasting time for complex project configuration. Use configuration from an existing project, if you have one, or use project skeleton generation tools for your technologies. Default configuration would be completely enough.
+### `npm run dev`
 
-# Must have
+Runs the app in the development mode with nodemon.\
+Open [http://localhost:8000](http://localhost:8000) to hit it in the browser.
+The page will reload if you make edits.\
 
-  1. Service must store the account value of the single user.
-  2. Service must be able to accept credit and debit financial transactions and update the account value correspondingly.
-  3. Any transaction, which leads to negative amount within the system, should be refused. Please provide http response code, which you think suits best for this case.
-  4. Application must store transactions history. Use in-memory storage. Pay attention that several transactions can be sent at the same time. The storage should be able to handle several transactions at the same time with concurrent access, where read transactions should not lock the storage and write transactions should lock both read and write operations.
-  5. It is necessary to design REST API by your vision in the scope of this task. There are some [API recommendations](https://github.com/venzee/vz-technical-exam/blob/master/resources/swagger.json). Please use these recommendations as the minimal scope, to avoid wasting time for not-needed operations.
-  6. In general, the service will be used programmatically via its RESTful API. For testing purposes Postman or any similar app can be used.
-  7. It should be possible to launch project by a single-line-command. Please provide README.md
-  8. Target completion time is 3 hours. We would rather see what you were able to do in 3 hours than a full-blown application you’ve spent days implementing. Note that in addition to quality, time used is also factored into scoring the task.
-  9. It should be posible provide unit test coverage, will be great.
+### `npm run build`
 
-# Expected Deliverables
-  1. Implement the solution in NodeJs
-  2. Link to your personal Github Repo, with the Source code.
-  3. Binary versions of your applications that are ready to run. No build should be required.
-  4. Readme.
+Builds the api for deployment to the `dist` folder.\
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+
+### `npm run start`
+Runs the app in the compilated mode.\
+Open [http://localhost:8000](http://localhost:8000) to hit it in the browser.
+
+### `npm run test`
+Runs the unit test with jest.
+
+# API endpoints:
+
+You can consult Swagger documentation going to 
+
+`http://localhost:8000/api-docs/`
+
+Get the account balance: 
+GET:
+
+`http://localhost:8000/api/v1/account/balance`
+
+Create a transaction:
+POST:
+
+`http://localhost:8000/api/v1/account/transactions`
+
+`bodyRequest: {  "type": string, "amount": number }`
+
+Fetch all transactions:
+GET:
+
+`http://localhost:8000/api/v1/account/transactions`
+
+Find a transaction by its ID:
+GET:
+
+`http://localhost:8000/api/v1/account/transactions/{uuid}`
+
+
+## TODO's
+
+- Adding more testing to service and model modules.
+- Adding security.
+- Handling more than one account.
+- Adding proper logger.
+
+Any question you can send an email to erramani.velasco@gmail.com
+
