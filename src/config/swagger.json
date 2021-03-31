@@ -5,7 +5,7 @@
     "version": "0.0.2",
     "title": "Accounting notebook"
   },
-  "host": "localhost",
+  "host": "localhost:8000",
   "basePath": "/api",
   "tags": [
     {
@@ -25,16 +25,16 @@
         ],
         "parameters": [],
         "responses": {
-          "2xx": {
+          "200": {
             "description": "successful operation",
             "schema": {
-              "type": "object"
+              "type": "balance: number"
             }
           }
         }
       }
     },
-    "?": {
+    "/v1/account/transactions": {
       "get": {
         "tags": [
           "transactions"
@@ -46,7 +46,7 @@
         ],
         "parameters": [],
         "responses": {
-          "2xx": {
+          "200": {
             "description": "successful operation",
             "schema": {
               "type": "array",
@@ -55,7 +55,7 @@
               }
             }
           },
-          "4xx": {
+          "409": {
             "description": "invalid status value"
           }
         }
@@ -84,13 +84,13 @@
           }
         ],
         "responses": {
-          "2xx": {
+          "201": {
             "description": "transaction stored",
             "schema": {
               "$ref": "#/definitions/Transaction"
             }
           },
-          "4xx": {
+          "400": {
             "description": "invalid input"
           }
         }
