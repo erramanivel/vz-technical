@@ -4,7 +4,7 @@ This NodeJS with Typescript API contains the functionality to get balance,create
 
 Note: In this case node_modules is implicit due to as requirement the binary solution should be there without compilation, however here you can find step by step how to compile it and test it. To run the final build you can run:
 
-### `run npm run start `
+### `npm run start `
 
 Runs the app in the compilated mode.\
 Open [http://localhost:8000](http://localhost:8000) to hit it in the browser.
