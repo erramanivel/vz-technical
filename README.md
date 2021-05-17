@@ -1,4 +1,4 @@
-# Venzee Account API
+# Vz Account API
 
 This NodeJS with Typescript API contains the functionality to get balance,create transactions, fetch transactions and look transactions for id for unique account.
 
